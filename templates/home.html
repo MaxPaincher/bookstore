@@ -4,4 +4,16 @@
 
 {% block content %}
     <h1>Este es el home</h1>
+    {% if user.is_authenticated %}
+        <p>Ola {{ user.email }}!!!!!!!!</p>
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
+    {% else %}
+        <P>No estas logeado</P>
+        <a href="{% url 'login' %}">Log in</a>
+        <a href="{% url 'signup' %}">Sign Up</a>
+
+    {% endif %}
 {% endblock content %}

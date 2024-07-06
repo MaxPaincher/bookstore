@@ -18,5 +18,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')), #Libreria del Login en general
+    path('accounts/', include('accounts.urls')), #URLs de la app
     path('', include('pages.urls')),
 ]
